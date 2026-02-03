@@ -1,0 +1,14 @@
+[package]
+name = "ma-template"
+version = "0.0.1"
+authors = ["IT KZN"]
+license = "MIT"
+description = "Template for Matuara Work at KZN"
+entrypoint = "src/ma-template.typ"
+categories = ["report"]
+repository = "https://github.com/itkzn/ma-template"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnails/main.png"
