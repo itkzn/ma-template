@@ -1,4 +1,4 @@
-# elsearticle template
+# ma-template
 
 [![Generic badge](https://img.shields.io/badge/Version-0.0.1-cornflowerblue.svg)]()
 [![MIT License](https://img.shields.io/badge/License-MIT-forestgreen)](https://github.com/itkzn/ma-template/blob/main/LICENSE)
