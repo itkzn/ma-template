@@ -1,10 +1,12 @@
 # ma-template
 
-[![Generic badge](https://img.shields.io/badge/Version-0.0.1-cornflowerblue.svg)]()
+[![Generic badge](https://img.shields.io/badge/Version-0.1.0-cornflowerblue.svg)]()
 [![MIT License](https://img.shields.io/badge/License-MIT-forestgreen)](https://github.com/itkzn/ma-template/blob/main/LICENSE)
 [![User Manual](https://img.shields.io/badge/doc-.pdf-mediumpurple)](https://github.com/itkzn/ma-template/blob/main/docs/manual.pdf)
 
-`ma-template` is a Typst template used for the matura work at the Kantonsschule Zurich Nord (KZN). 
+`ma-template` is a comprehensive Typst template for academic theses and dissertations. Provides functions for title pages, headers, footers, table of contents, list of figures/tables, figure and table formatting with subfigures, and full document layout management. Supports multilingual documents (DE/EN/FR) with customizable fonts, spacing, and numbering schemes.
+
+[![Thumbnail](https://github.com/itkzn/ma-template/blob/main/thumbnail.png?raw=true)]()
 
 ## Basic usage
 
@@ -13,59 +15,11 @@ This section provides the minimal amount of information to get started with the 
 To use the `ma-template` template, you need to include the following line at the beginning of your `typ` file:
 
 ```typ
-#import "@preview/ma-template:0.0.1": *
+#import "@preview/ma-template:0.1.0": *
 ```
 
-### Initializing the template
 
-After importing `elsearticle`, you have to initialize the template by a show rule with the `#elsearticle()` command. This function takes an optional argument to specify the title of the document.
 
-* `title`: Title of the paper
-* `authors`: List of the authors of the paper
-* `affiliations`: List of the affiliations of the authors
-* `abstract`: Abstract of the paper
-* `journal`: Name of the journal
-* `keywords`: List of keywords of the paper
-* `format`: Format of the paper. Possible values are `preprint`, `review`, `1p`, `3p`, `5p`
-* `numcol`: Number of columns of the paper. Possible values are 1 and 2
-* `line-numbering`: Enable line numbering. Possible values are `true` and `false`
-
-## Additional features
-
-The `elsearticle` template provides additional features to help you format your document properly.
-
-### Appendix
-
-To activate the appendix environment, all you have to do is to place the following command in your document:
-```typ
-#show: appendix
-
-// Appendix content here
-```
-
-### Subfigures
-
-Subfigures are not built-in features of Typst, but the `elsearticle` template provides a way to handle them. It is based on the `subpar` package that allows you to create subfigures and properly reference them.
-
-```typ
-  #subfigure(
-    figure(image("image1.png"), caption: []), <figa>,
-    figure(image("image2.png"), caption: []), <figb>,
-    columns: (1fr, 1fr),
-    caption: [(a) Left image and (b) Right image],
-    label: <fig>
-  )
-```
-
-### Equations
-
-The `elsearticle` template provides the `#nonumeq()` function to create unnmbered equations. The latter function can be used as follows:
-```typ
-#nonumeq[$
-  y = f(x)
-  $
-]
-```
 
 ## License
 MIT licensed
