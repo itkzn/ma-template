@@ -15,9 +15,12 @@ jobs:
       - name: Setup Typst
         uses: typst-community/setup-typst@v5
       - name: Change Import-Paths for CI
-        run: sed -i 's|@preview/ma-template:[^"]*|../lib.typ|g' template/main*.typ
+        run: sed -i 's|@preview/ma-template:[^"]*|../lib.typ|g' template/*.typ
       - name: Compile Document
-        run: typst compile --root . template/main.typ docs/manual.pdf
+        run: | 
+          cd template
+          typst compile --root .. main.typ ../docs/manual.pdf
+          cd ..
       - name: Commit and Push
         run: |
           git config --global user.name "github-actions[bot]"
