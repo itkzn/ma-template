@@ -39,7 +39,6 @@
 #import "@preview/unify:0.7.1": unit, qty, num
 #import "@preview/codly:1.3.0": codly, codly-init
 #import "@preview/codly-languages:0.1.10": *
-#import "@preview/metalogo:1.2.0": LaTeX
 
 #show: codly-init.with()
 #codly(languages: codly-languages)

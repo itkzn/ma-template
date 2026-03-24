@@ -140,6 +140,22 @@
   }
 }
 
+// TeX and LaTeX Logo
+// Returns: the logos formatted as in LaTeX
+#let TeX = {
+  set text(font: "New Computer Modern",)
+  let t = "T"
+  let e = text(baseline: 0.22em, "E")
+  let x = "X"
+  box(t + h(-0.14em) + e + h(-0.14em) + x)
+}
+
+#let LaTeX = {
+  set text(font: "New Computer Modern")
+  let l = "L"
+  let a = text(baseline: -0.35em, size: 0.66em, "A")
+  box(l + h(-0.32em) + a + h(-0.13em) + TeX)
+}
 
 // ------------------------------------------------------------
 // Title Page
