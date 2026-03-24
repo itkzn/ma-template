@@ -6,7 +6,7 @@
 
 `ma-template` is a comprehensive Typst template for academic theses and dissertations. Provides functions for title pages, headers, footers, table of contents, list of figures/tables, figure and table formatting with subfigures, and full document layout management. Supports multilingual documents (DE/EN/FR) with customizable fonts, spacing, and numbering schemes.
 
-[![Thumbnail](https://github.com/itkzn/ma-template/blob/main/thumbnail.png?raw=true)]()
+[![Thumbnail](https://github.com/itkzn/ma-template/blob/cb9ebc83bd178639fceae5af507b0626c114a60d/thumbnail.png?raw=true)]()
 
 ## Basic usage
 
