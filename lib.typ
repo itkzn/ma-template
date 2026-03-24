@@ -815,6 +815,12 @@
     numbering: it => { strong(str(counter(figure.where(kind: table)).get().at(0))) },
   )
 
+  show figure.where(kind: table): it => {
+    counter(figure.where(kind: "subfigure")).update(0)
+    it
+  }
+
+
   // ----------------------------------------------------------------
   // Title Page
   // ----------------------------------------------------------------
