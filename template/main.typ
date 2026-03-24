@@ -35,7 +35,7 @@
  * SOFTWARE.
  */
 
-#import "@local/ma-template:0.1.0": *
+#import "@preview/ma-template:0.1.0": *
 
 // ============================================================
 // Allgemeine Angaben

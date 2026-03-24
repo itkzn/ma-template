@@ -35,7 +35,7 @@
  * SOFTWARE.
  */
  
-#import "@local/ma-template:0.1.0": *
+#import "@preview/ma-template:0.1.0": *
 #import "@preview/unify:0.7.1": unit, qty, num
 #import "@preview/codly:1.3.0": codly, codly-init
 #import "@preview/codly-languages:0.1.10": *

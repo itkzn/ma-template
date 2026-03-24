@@ -1,0 +1,29 @@
+name: Render manual.pdf
+on: push
+
+permissions:
+  contents: write
+
+jobs:
+  render-manual:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name : Install fonts
+        run: sudo apt-get update && sudo apt-get install fonts-ebgaramond fonts-libertinus fonts-lato
+      - name: Setup Typst
+        uses: typst-community/setup-typst@v5
+      - name: Change Import-Paths for CI
+        run: sed -i 's|@preview/ma-template:[^"]*|../lib.typ|g' template/main*.typ
+      - name: Compile Document
+        run: typst compile --root . template/main.typ --output docs/manual.pdf
+      - name: Commit and Push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add docs/manual.pdf
+          # Nur committen, wenn es tatsächlich Änderungen gibt
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Automatische Aktualisierung des Manuals" && git push)
+
