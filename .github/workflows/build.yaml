@@ -18,8 +18,8 @@ jobs:
           wget https://github.com/alerque/libertinus/releases/download/v7.051/Libertinus-7.051.zip
           unzip Libertinus-7.051.zip
           mv Libertinus-7.051/static/OTF/LibertinusMath-Regular.otf ~/.local/share/fonts/
-          wget https://github.com/georgd/EB-Garamond/releases/download/nightly/EBGaramond.zip
-          unzip EBGaramond.zip
+          wget https://www.dafontfree.io/wp-content/uploads/download-manager-files/EB_Garamond.zip
+          unzip EB_Garamond.zip
           mv *.ttf ~/.local/share/fonts/
           fc-cache -f
           cd ..
