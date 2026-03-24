@@ -11,7 +11,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
       - name : Install fonts
-        run: sudo apt-get update && sudo apt-get install fonts-ebgaramond fonts-linuxlibertine
+        run: | 
+          mkdir fonts
+          cd fonts
+          wget https://github.com/alerque/libertinus/releases/download/v7.051/Libertinus-7.051.zip
+          unzip Libertinus-7.051.zip
+          mv Libertinus-7.051/static/OTF/LibertinusMath-Regular.otf ~/.local/share/fonts/
+          wget https://github.com/georgd/EB-Garamond/releases/download/nightly/EBGaramond.zip
+          unzip EBGaramond.zip
+          mv *.otf ~/.local/share/fonts/
+          fc-cache -f
+          cd ..
+          rm -Rf fonts
       - name: Setup Typst
         uses: typst-community/setup-typst@v5
       - name: Change Import-Paths and Font Name for CI
