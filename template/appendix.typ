@@ -250,16 +250,6 @@ Wie in @gl:kontaktverfahren dargestellt...
   supplement: [Gl.],
 )<gl:kontaktverfahren>
 
-== Hinweise zur Schriftart
-
-Das Paket `typsium` verwendet die im Dokument gesetzte Hauptschrift. Für professionellen Chemiesatz empfiehlt sich eine serifenlose Schrift wie _Lato_ oder _Arial_ für Formeln, während der Fliesstext in _EB Garamond_ gesetzt bleibt. Dies kann lokal überschrieben werden:
-
-```typst
-#text(font: "Lato")[#ce[H2SO4 + 2NaOH -> Na2SO4 + 2H2O]]
-```
-
-#text(font: "Lato")[#ce[H2SO4 + 2NaOH -> Na2SO4 + 2H2O]]
-
 Strukturformeln (Lewis-Strukturen, Skelettformeln) sind mit `typsium` nicht darstellbar. Dafür steht das Paket `alchemist` (#link("https://typst.app/universe/package/alchemist")) zur Verfügung, das auf `cetz` aufbaut und eine ähnliche Syntax wie `chemfig` in #LaTeX bietet.
 
 
