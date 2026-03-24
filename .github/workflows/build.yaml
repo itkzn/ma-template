@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
       - name : Install fonts
-        run: sudo apt-get update && sudo apt-get install fonts-ebgaramond fonts-libertinus fonts-lato
+        run: sudo apt-get update && sudo apt-get install fonts-ebgaramond fonts-lato
       - name: Setup Typst
         uses: typst-community/setup-typst@v5
       - name: Change Import-Paths for CI
