@@ -425,6 +425,7 @@ Für mehrere zusammengehörige Abbildungen steht die ```typst kind: "subfigure"`
     #grid(
       columns: (0.5fr, 0.5fr), // Zwei gleich breite Spalten
       gutter: 7mm,              // Abstand zwischen den Teilabbildungen
+      align: bottom,
       [
         #figure(
           image("img/bild_a.jpeg", width: 100%),
@@ -462,6 +463,7 @@ Für ein 2×2-Raster mit vier Teilabbildungen:
     #grid(
       columns: (0.5fr, 0.5fr),
       gutter: 7mm,
+      align: bottom,
       [
         #figure(
           image("img/a.jpeg", width: 100%),
@@ -564,6 +566,7 @@ Analog zu den Abbildungen können auch Tabellen nebeneinander gesetzt werden, in
     #grid(
       columns: (0.48fr, 0.48fr),
       gutter: 10mm,
+      align: bottom,
       [
         #figure(
           table(
@@ -620,6 +623,7 @@ Die gesetzte Tabelle:
     #grid(
       columns: (0.48fr, 0.48fr),
       gutter: 10mm,
+      align: bottom,
       [
         #figure(
           table(
