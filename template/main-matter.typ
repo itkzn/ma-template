@@ -842,6 +842,7 @@ Das KZN-Template benutzt die vom Typst-Standard vorgesehene Syntax zum Einbinden
     #grid(
       columns: (0.5fr, 0.5fr),
       gutter: 7mm,
+      align: bottom,
       [
         #figure(
           align(center)[#image("Abbildung_a.pdf", width: 100%)],
@@ -882,6 +883,7 @@ Das KZN-Template benutzt die vom Typst-Standard vorgesehene Syntax zum Einbinden
     #grid(
       columns: (0.5fr, 0.5fr),
       gutter: 7mm,
+      align: bottom,
       [
         #figure(
           align(center)[#text(size: 40pt, baseline: 30pt, [A])],
