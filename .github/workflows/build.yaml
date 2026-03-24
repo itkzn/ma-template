@@ -13,6 +13,7 @@ jobs:
       - name : Install fonts
         run: | 
           mkdir fonts
+          mkdir -p ~/.local/share/fonts
           cd fonts
           wget https://github.com/alerque/libertinus/releases/download/v7.051/Libertinus-7.051.zip
           unzip Libertinus-7.051.zip
