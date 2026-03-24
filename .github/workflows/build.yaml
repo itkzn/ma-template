@@ -11,11 +11,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
       - name : Install fonts
-        run: sudo apt-get update && sudo apt-get install fonts-ebgaramond fonts-lato
+        run: sudo apt-get update && sudo apt-get install fonts-ebgaramond fonts-linuxlibertine
       - name: Setup Typst
         uses: typst-community/setup-typst@v5
-      - name: Change Import-Paths for CI
-        run: sed -i 's|@preview/ma-template:[^"]*|../lib.typ|g' template/*.typ
+      - name: Change Import-Paths and Font Name for CI
+        run: | 
+          sed -i 's|@preview/ma-template:[^"]*|../lib.typ|g' template/*.typ
+          sed -i 's|EB Garamond|EB Garamond 12|g' template/main.typ
       - name: Compile Document
         run: | 
           cd template
