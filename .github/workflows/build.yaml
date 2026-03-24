@@ -29,7 +29,6 @@ jobs:
       - name: Change Import-Paths and Font Name for CI
         run: | 
           sed -i 's|@preview/ma-template:[^"]*|../lib.typ|g' template/*.typ
-          sed -i 's|EB Garamond|EB Garamond 12|g' template/main.typ
       - name: Compile Document
         run: | 
           cd template
