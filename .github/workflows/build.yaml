@@ -20,7 +20,7 @@ jobs:
           mv Libertinus-7.051/static/OTF/LibertinusMath-Regular.otf ~/.local/share/fonts/
           wget https://www.dafontfree.io/wp-content/uploads/download-manager-files/EB_Garamond.zip
           unzip EB_Garamond.zip
-          mv *.ttf ~/.local/share/fonts/
+          mv static/*.ttf ~/.local/share/fonts/
           fc-cache -f
           cd ..
           rm -Rf fonts
