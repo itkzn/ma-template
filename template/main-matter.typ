@@ -786,7 +786,7 @@ Eigene mehrsprachige Texte können nach demselben Muster als Dictionary definier
 
 ==== Sprachregion
 
-Der Parameter ```typst language-region``` beeinflusst sprachregionale Konventionen, insbesondere Anführungszeichen. Mit ```typst language-region: "CH"``` werden Schweizer Anführungszeichen («...») verwendet, mit ```typst "DE"``` deutsche („...").
+Der Parameter ```typst language-region``` beeinflusst sprachregionale Konventionen, insbesondere Anführungszeichen. Mit ```typst language-region: "CH"``` werden Schweizer Anführungszeichen («...») verwendet, mit ```typst "DE"``` deutsche („...“).
 
 #pagebreak(weak: true)
 
