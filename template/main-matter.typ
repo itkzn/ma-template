@@ -535,7 +535,7 @@ Die Funktion ```typst kznTitlePage()``` erzeugt eine Titelseite, die dem kantona
   subtitle: subtitle,
   subtitleSize: 18pt,
   date: date,
-  nord-image: "img/image.jpeg",        // Hintergrundbild (Dateipfad)
+  nord-image: image("img/image.jpeg", height: 100%),   // Hintergrundbild (Dateipfad)
   nord-image-source: [                 // Quellenangabe zum Bild (optional)
     #localize(cover-image) #link("https://...")
   ],
