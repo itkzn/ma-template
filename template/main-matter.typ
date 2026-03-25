@@ -743,7 +743,7 @@ Die Wahl des Stils richtet sich nach den Vorgaben der Schule oder des Fachbereic
 Die BibTeX-Datei kann direkt aus Literaturverwaltungsprogrammen exportiert werden:
 
 - *Zotero*: Datei → Bibliothek exportieren → Format: BibTeX
-- *Mendeley*: Tools → Options → BibTeX → Enable BibTeX syncing
+- *Mendeley*: Einträge Auswählen → Export → BibTeX
 - *JabRef*: Arbeitet nativ im BibTeX-Format
 
 #pagebreak(weak: true)
