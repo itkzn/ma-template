@@ -323,40 +323,35 @@ KI-Tools wurden bei der Erstellung dieser Arbeit in folgenden Bereichen eingeset
 - Grammatik- und Stilprüfung (Claude Sonnet 4.6)
 - Code-Generierung für Beispiele (Claude Sonnet 4.6)
 
-Alle KI-generierten Inhalte wurden sorgfältig überprüft, verifiziert und bei Bedarf angepasst. Die Autoren übernehmen die volle Verantwortung für die Richtigkeit und Integrität aller Inhalte.
-    ],
+Alle KI-generierten Inhalte wurden sorgfältig überprüft, verifiziert und bei Bedarf angepasst.],
     en: [
 AI tools were used in the following areas during the preparation of this work:
 - Translations and language examples (Claude Sonnet 4.6)
 - Grammar and style checking (Claude Sonnet 4.6)
 - Code generation for examples (Claude Sonnet 4.6)
 
-All AI-generated content was carefully reviewed, verified, and adapted as needed. The authors take full responsibility for the accuracy and integrity of all content.
-    ],
+All AI-generated content was carefully reviewed, verified, and adapted as needed.],
     fr: [
 Des outils d'IA ont été utilisés dans les domaines suivants lors de la préparation de ce travail :
 - Traductions et exemples linguistiques (Claude Sonnet 4.6)
 - Vérification grammaticale et stylistique (Claude Sonnet 4.6)
 - Génération de code pour les exemples (Claude Sonnet 4.6)
 
-Tous les contenus générés par IA ont été soigneusement vérifiés, validés et adaptés si nécessaire. Les auteurs assument l'entière responsabilité de l'exactitude et de l'intégrité de tous les contenus.
-    ],
+Tous les contenus générés par IA ont été soigneusement vérifiés, validés et adaptés si nécessaire.],
     it: [
 Strumenti di IA sono stati utilizzati nelle seguenti aree durante la preparazione di questo lavoro:
 - Traduzioni ed esempi linguistici (Claude Sonnet 4.6)
 - Controllo grammaticale e stilistico (Claude Sonnet 4.6)
 - Generazione di codice per gli esempi (Claude Sonnet 4.6)
 
-Tutti i contenuti generati dall'IA sono stati attentamente verificati, validati e adattati secondo necessità. Gli autori si assumono la piena responsabilità dell'accuratezza e dell'integrità di tutti i contenuti.
-    ],
+Tutti i contenuti generati dall'IA sono stati attentamente verificati, validati e adattati secondo necessità.],
     es: [
 Se utilizaron herramientas de IA en las siguientes áreas durante la preparación de este trabajo:
 - Traducciones y ejemplos lingüísticos (Claude Sonnet 4.6)
 - Revisión gramatical y estilística (Claude Sonnet 4.6)
 - Generación de código para ejemplos (Claude Sonnet 4.6)
 
-Todo el contenido generado por IA fue cuidadosamente revisado, verificado y adaptado según fuera necesario. Los autores asumen la plena responsabilidad de la exactitud e integridad de todos los contenidos.
-    ],
+Todo el contenido generado por IA fue cuidadosamente revisado, verificado y adaptado según fuera necesario.],
   ))
   ]
 }
