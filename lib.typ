@@ -669,8 +669,16 @@
     }
   }
 
-  // Render all cross-references in bold
-  show ref: it => { strong(it) }
+  // Style of cross-references
+  show ref: it => {
+    if it.element == none {
+      // Bibliography reference (@key) → normal
+      it
+    } else {
+      // Label reference (@fig:..., @eq:..., etc.) → bold
+      strong(it)
+    }
+  }
 
   // ----------------------------------------------------------------
   // Default Abbreviations for Figures, Tables, and Sections
