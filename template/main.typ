@@ -394,7 +394,7 @@ Todo el contenido generado por IA fue cuidadosamente revisado, verificado y adap
     ```typst // Titelseite mit KZN-Gestaltung und Hintergrundbild
   #let kznTitlePage() = kzn-titlepage(
   ...
-  nord-image: "img/neuesBild.jpeg",
+  nord-image: image("img/neuesBild.jpeg", height: 100%),
   // Quellenangabe zum Hintergrundbild (beliebiger Textblock)
   nord-image-source: [#localize(cover-image) #link("https://www.meineBildquelle.ch")],
   ...
