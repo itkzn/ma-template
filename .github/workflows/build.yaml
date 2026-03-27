@@ -28,7 +28,7 @@ jobs:
         uses: typst-community/setup-typst@v5
       - name: Change Import-Paths and Font Name for CI
         run: | 
-          sed -i 's|@preview/ma-template:[^"]*|../lib.typ|g' template/*.typ
+          sed -i 's|@preview/ma-template:[^"]*|../lib.typ|' template/*.typ
       - name: Compile Document
         run: | 
           cd template
