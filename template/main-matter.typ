@@ -447,7 +447,7 @@ Für die Layoutanpassungen werden mehrere _Dictionaries_ verwendet. Ein _Diction
 #codly(number-format: n => [#(n + 55)])
 
 ```typst
-#let layout_def = (
+#let layout-def = (
   paper: "a4",
   font-size: 11pt,
   margin: (top: 2cm, inside: 3cm, outside: 2cm, bottom: 2.5cm),
@@ -456,8 +456,8 @@ Für die Layoutanpassungen werden mehrere _Dictionaries_ verwendet. Ein _Diction
   monoFont: "New Computer Modern Mono",
   mathFont: "Libertinus Math",
   copystop: false,
-  header: kzn-header(evenText: [#title]),
-  footer: kzn-footer(footerText: [#school]),
+  header: kzn-header(even-text: [#title]),
+  footer: kzn-footer(footer-text: [#school]),
   link-color: green,
   heading-desc: heading-desc,
   fig-desc: fig-desc,
@@ -484,7 +484,7 @@ Im nächsten Block werden die Verzeichnisse eingerichtet:
 Standardmässig sind alle Verzeichnisse aktiviert und werden vor der Arbeit gesetzt. Im folgenden Block:
 
 ```typst
-#let outline_def = (
+#let outline-def = (
   toc: [= #toc-title],
   lof: [= #lof-title],
   lot: [= #lot-title],
@@ -509,10 +509,10 @@ kann dies geändert werden:
 
 === Titelseite
 
-Das Template stellt zwei vordefinierte Titelseiten-Funktionen zur Verfügung. Welche verwendet wird, wird in der Variable ```typst titlepage_def``` festgelegt:
+Das Template stellt zwei vordefinierte Titelseiten-Funktionen zur Verfügung. Welche verwendet wird, wird in der Variable ```typst titlepage-def``` festgelegt:
 
 ```typst
-#let titlepage_def = (
+#let titlepage-def = (
   content: kznTitlePage()    // KZN-Gestaltung mit Hintergrundbild
   // content: simpleTitlePage() // Einfache, textbasierte Variante
 )
@@ -531,9 +531,9 @@ Die Funktion ```typst kznTitlePage()``` erzeugt eine Titelseite, die dem kantona
   authors: authors,
   supervisors: supervisors,
   title: localize(title),
-  titleSize: 28pt,
+  title-size: 28pt,
   subtitle: subtitle,
-  subtitleSize: 18pt,
+  subtitle-size: 18pt,
   date: date,
   nord-image: image("img/image.jpeg", height: 100%),   // Hintergrundbild (Dateipfad)
   nord-image-source: [                 // Quellenangabe zum Bild (optional)
@@ -556,7 +556,7 @@ Soll kein Hintergrundbild verwendet werden, wird der Parameter ```typst nord-ima
 
 ==== Eigene Titelseite
 
-Eine vollständig eigene Titelseite kann als Typst-Funktion definiert und direkt als Inhalt von ```typst titlepage_def``` übergeben werden:
+Eine vollständig eigene Titelseite kann als Typst-Funktion definiert und direkt als Inhalt von ```typst titlepage-def``` übergeben werden:
 
 ```typst
 #let meineTitelseite() = {
@@ -570,17 +570,17 @@ Eine vollständig eigene Titelseite kann als Typst-Funktion definiert und direkt
   ])
 }
 
-#let titlepage_def = (
+#let titlepage-def = (
   content: meineTitelseite()
 )
 ```
 
 === Definition der Blöcke vor der eigentlichen Arbeit
 
-Vor dem Inhaltsverzeichnis können mehrere Blöcke eingefügt werden, z.B. Abstract, Vorwort, Danksagung oder eine Erklärung zur KI-Nutzung. Diese werden in ```typst frontmatter_def``` zusammengestellt:
+Vor dem Inhaltsverzeichnis können mehrere Blöcke eingefügt werden, z.B. Abstract, Vorwort, Danksagung oder eine Erklärung zur KI-Nutzung. Diese werden in ```typst frontmatter-def``` zusammengestellt:
 
 ```typst
-#let frontmatter_def = (
+#let frontmatter-def = (
   content: (
     myAbstract(),
     myAIDeclaration(), 
@@ -613,7 +613,7 @@ Eigene Blöcke können nach demselben Muster definiert und in ```typst content: 
   ]
 }
 
-#let frontmatter_def = (
+#let frontmatter-def = (
   content: (myAbstract(), meinEigenerBlock(), myAIDeclaration()),
 )
 ```
@@ -621,7 +621,7 @@ Eigene Blöcke können nach demselben Muster definiert und in ```typst content: 
 Die Seitennummerierung im Frontmatter ist standardmässig mit römischen Kleinbuchstaben (i, ii, iii, ...) eingestellt. Dies kann geändert werden:
 
 ```typst
-#let frontmatter_def = (
+#let frontmatter-def = (
   content: (...),
   numbering: "1",  // Arabische Ziffern statt römischer
 )
@@ -750,10 +750,10 @@ Die BibTeX-Datei kann direkt aus Literaturverwaltungsprogrammen exportiert werde
 
 == Mehrsprachigkeit und ```typst localize()```
 
-Das Template unterstützt die Sprachen Deutsch (```typst "de"```), Englisch (```typst "en"```), Französisch (```typst "fr"```), Italienisch (```typst "it"```) und Spanisch (```typst "es"```). Die aktive Sprache wird in ```typst layout_def``` festgelegt:
+Das Template unterstützt die Sprachen Deutsch (```typst "de"```), Englisch (```typst "en"```), Französisch (```typst "fr"```), Italienisch (```typst "it"```) und Spanisch (```typst "es"```). Die aktive Sprache wird in ```typst layout-def``` festgelegt:
 
 ```typst
-#let layout_def = (
+#let layout-def = (
   ...
   language: "de",
   language-region: "CH",
@@ -781,7 +781,7 @@ Eigene mehrsprachige Texte können nach demselben Muster als Dictionary definier
 #localize(meinText)
 ```
 
-```typst localize()``` wählt automatisch die Sprache, die in ```typst layout_def``` gesetzt ist. Ist die aktive Sprache im Dictionary nicht vorhanden, wird zuerst Deutsch, dann Englisch als Fallback verwendet.
+```typst localize()``` wählt automatisch die Sprache, die in ```typst layout-def``` gesetzt ist. Ist die aktive Sprache im Dictionary nicht vorhanden, wird zuerst Deutsch, dann Englisch als Fallback verwendet.
 
 ==== Sprachregion
 
@@ -791,10 +791,10 @@ Der Parameter ```typst language-region``` beeinflusst sprachregionale Konvention
 
 == Anonymisierung mit ```typst copystop``` <kap:anonym>
 
-Für die Einreichung bei Plagiatsprüfungsdiensten kann eine anonymisierte Version des Dokuments erstellt werden, bei der persönliche Angaben und Bilder ausgeblendet werden. Dies wird mit dem Parameter ```typst copystop``` in ```typst layout_def``` aktiviert:
+Für die Einreichung bei Plagiatsprüfungsdiensten kann eine anonymisierte Version des Dokuments erstellt werden, bei der persönliche Angaben und Bilder ausgeblendet werden. Dies wird mit dem Parameter ```typst copystop``` in ```typst layout-def``` aktiviert:
 
 ```typst
-#let layout_def = (
+#let layout-def = (
   ...
   copystop: true,   // Anonymisierter Modus aktiv
   // copystop: false, // Normaler Modus

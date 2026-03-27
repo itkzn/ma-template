@@ -129,7 +129,7 @@
 // ============================================================
 // Diese Angaben können bei Bedarf angepasst werden.
 
-#let layout_def = (
+#let layout-def = (
   // Papierformat
   paper: "a4",
 
@@ -153,11 +153,11 @@
 
   // Kopfzeile: kzn-header zeigt die aktuelle Kapitelbezeichnung an.
   // Eigene Definition möglich, z.B. header: (odd: [Mein Text], even: [])
-  header: kzn-header(evenText: [#title]),
+  header: kzn-header(even-text: [#title]),
 
   // Fusszeile: kzn-footer zeigt die Seitenzahl und den Schulnamen an.
   // Eigene Definition möglich, z.B. footer: (odd: [Rechts], even: [Links])
-  footer: kzn-footer(footerText: [#school]),
+  footer: kzn-footer(footer-text: [#school]),
 
   // Farbe für Hyperlinks
   link-color: green,
@@ -186,7 +186,7 @@
 // *-outlined: true  = Verzeichnis erscheint im Inhaltsverzeichnis
 //             false = Verzeichnis erscheint nicht im Inhaltsverzeichnis
 
-#let outline_def = (
+#let outline-def = (
   toc: [= #toc-title],
   lof: [= #lof-title],
   lot: [= #lot-title],
@@ -267,9 +267,9 @@
   authors: authors,
   supervisors: supervisors,
   title: localize(title),
-  titleSize: 28pt,
+  title-size: 28pt,
   subtitle: subtitle,
-  subtitleSize: 18pt,
+  subtitle-size: 18pt,
   date: date,
   // Hintergrundbild unten auf der Titelseite
   nord-image: image("img/image.jpeg", height: 100%),
@@ -288,7 +288,7 @@
 )
 
 // Hier wird die gewünschte Titelseite ausgewählt
-#let titlepage_def = (
+#let titlepage-def = (
   content: kznTitlePage()
   // content: simpleTitlePage()
 )
@@ -394,12 +394,12 @@ Todo el contenido generado por IA fue cuidadosamente revisado, verificado y adap
   nord-image-source: [#localize(cover-image) #link("https://www.meineBildquelle.ch")],
   ...
   ```
-  - Die Vorspann-Blöcke im Dokument ```typst main.typ``` anpassen und nicht gewünschte löschen. So würde z.B. nur der Abstract-Block gesetzt: ```typst #let frontmatter_def = (
+  - Die Vorspann-Blöcke im Dokument ```typst main.typ``` anpassen und nicht gewünschte löschen. So würde z.B. nur der Abstract-Block gesetzt: ```typst #let frontmatter-def = (
   content: (
     myAbstract(),
   ),
   // numbering: "i",               // Römische Seitenzahlen im Vorspann
-  // footer: kzn-footer(footerText: []), // Eigene Fusszeile im Vorspann
+  // footer: kzn-footer(footer-text: []), // Eigene Fusszeile im Vorspann
 )
 ```
   - Inhalt in ```typst main-matter.typ``` und ```typst appendix.typ``` löschen bis auf folgende Zeilen:
@@ -414,7 +414,7 @@ Todo el contenido generado por IA fue cuidadosamente revisado, verificado y adap
 
 // Alle Blöcke des Vorspanns in der gewünschten Reihenfolge.
 // Nicht benötigte Blöcke auskommentieren oder löschen.
-#let frontmatter_def = (
+#let frontmatter-def = (
   content: (
     myAbstract(),
     myAIDeclaration(), 
@@ -423,7 +423,7 @@ Todo el contenido generado por IA fue cuidadosamente revisado, verificado y adap
     myCustomBlock(),
   ),
   // numbering: "i",               // Römische Seitenzahlen im Vorspann
-  // footer: kzn-footer(footerText: []), // Eigene Fusszeile im Vorspann
+  // footer: kzn-footer(footer-text: []), // Eigene Fusszeile im Vorspann
 )
 
 
@@ -432,10 +432,10 @@ Todo el contenido generado por IA fue cuidadosamente revisado, verificado y adap
 // ============================================================
 
 #show: ma.with(
-  layout_def: layout_def,
-  frontmatter_def: frontmatter_def,
-  titlepage_def: titlepage_def,
-  outline_def: outline_def,
+  layout-def: layout-def,
+  frontmatter-def: frontmatter-def,
+  titlepage-def: titlepage-def,
+  outline-def: outline-def,
 )
 
 
@@ -457,10 +457,10 @@ Todo el contenido generado por IA fue cuidadosamente revisado, verificado y adap
 // ============================================================
 // Verzeichnisse nach dem Hauptteil
 // ============================================================
-// Dieser Aufruf ist nur wirksam, wenn in outline_def eine
+// Dieser Aufruf ist nur wirksam, wenn in outline-def eine
 // *-position: "after" gesetzt wurde. Sonst hat er keine Funktion.
 
-#outlines_after(outline_def, layout_def)
+#outlines-after(outline-def, layout-def)
 
 
 // ============================================================

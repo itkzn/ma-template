@@ -51,7 +51,7 @@
 // Parameters:
 //   var: the value to check
 // Returns: true if empty, false otherwise
-#let isEmpty(var) = {
+#let is-empty(var) = {
   if var == [] or var == none {
     return true
   } else {
@@ -66,7 +66,7 @@
 // Returns: true if key exists and has a non-empty value, false otherwise
 #let exists(key, dict) = {
   if key in dict {
-    if not isEmpty(dict.at(key)) {
+    if not is-empty(dict.at(key)) {
       return true
     }
   }
@@ -173,9 +173,9 @@
 //   zh-blue: Zurich canton blue accent color
 //   heading-font: font used for all title page text
 //   title: main title content
-//   titleSize: font size for the main title
+//   title-size: font size for the main title
 //   subtitle: subtitle content
-//   subtitleSize: font size for the subtitle
+//   subtitle-size: font size for the subtitle
 //   strings: dictionary of localized label strings (written-by, supervised-by, etc.)
 #let kzn-titlepage(
   authors: none,
@@ -188,9 +188,9 @@
   zh-blue: rgb("009EE0"),
   heading-font: "EB Garamond",
   title: none,
-  titleSize: 36pt,
+  title-size: 36pt,
   subtitle: none,
-  subtitleSize: 18pt,
+  subtitle-size: 18pt,
   strings: (
     written-by: localize(written-by),
     supervised-by: localize(supervised-by),
@@ -212,7 +212,7 @@
       )
 
       // Build tiling pattern from nord-image if provided
-      if not isEmpty(nord-image) {
+      if not is-empty(nord-image) {
         let pat = tiling(
           size: (page.width, page.height),
           relative: "parent",
@@ -349,8 +349,8 @@
 
           #v(1cm)
 
-          #block(text(font: heading-font, weight: "bold", size: titleSize, title))
-          #block(text(font: heading-font, weight: "bold", size: subtitleSize, subtitle))
+          #block(text(font: heading-font, weight: "bold", size: title-size, title))
+          #block(text(font: heading-font, weight: "bold", size: subtitle-size, subtitle))
 
           #v(1cm)
 
@@ -362,26 +362,26 @@
       place(
         bottom + left,
         [
-          #if not isEmpty(authors) {
+          #if not is-empty(authors) {
             block(text(font: heading-font, weight: "bold", size: 14pt, [#strings.written-by]))
           }
-          #if not isEmpty(authors) {
+          #if not is-empty(authors) {
             block(text(font: heading-font, weight: "bold", size: 16pt, [#join-with-und(authors)]))
           }
-          #if not isEmpty(supervisors) {
+          #if not is-empty(supervisors) {
             block(text(font: heading-font, weight: "bold", size: 12pt, [#strings.supervised-by]))
           }
-          #if not isEmpty(supervisors) {
+          #if not is-empty(supervisors) {
             block(text(font: heading-font, weight: "bold", size: 14pt, [#join-with-und(supervisors)]))
           }
-          #if not isEmpty(date) {
+          #if not is-empty(date) {
             block(text(font: heading-font, weight: "bold", size: 11pt, [#strings.submitted-on #date]))
           }
         ],
       )
 
       // Optional image source credit on a new page
-      if not isEmpty(nord-image-source) {
+      if not is-empty(nord-image-source) {
         pagebreak()
         place(bottom + left, [#nord-image-source])
       }
@@ -390,8 +390,8 @@
       place(
         horizon + center,
         [
-          #block(text(font: heading-font, weight: "bold", size: titleSize, title))
-          #block(text(font: heading-font, weight: "bold", size: subtitleSize, subtitle))
+          #block(text(font: heading-font, weight: "bold", size: title-size, title))
+          #block(text(font: heading-font, weight: "bold", size: subtitle-size, subtitle))
           #v(2cm)
           #block(text(size: 20pt, localize(anonymous-version)))
         ],
@@ -410,7 +410,7 @@
 //   skip: number of pages to skip from the beginning (default: 1)
 //   level: heading level to retrieve (default: 1)
 // Returns: array containing a dictionary with keys "number" and "body"
-#let getHeadingFull(skip: 1, level: 1) = {
+#let get-heading-full(skip: 1, level: 1) = {
   let result = ()
 
   if counter(page).at(here()).first() > skip {
@@ -460,10 +460,10 @@
 //   skip: number of pages to skip from the beginning (default: 1)
 //   level: heading level to retrieve (default: 1)
 // Returns: heading body content or empty array
-#let getHeadingBody(skip: 1, level: 1) = {
-  let headingFull = getHeadingFull(skip: skip, level: level)
-  if headingFull.len() > 0 {
-    return headingFull.first().body
+#let get-heading-body(skip: 1, level: 1) = {
+  let heading-full = get-heading-full(skip: skip, level: level)
+  if heading-full.len() > 0 {
+    return heading-full.first().body
   }
   return []
 }
@@ -473,41 +473,41 @@
 //   skip: number of pages to skip from the beginning (default: 1)
 //   level: heading level to retrieve (default: 1)
 // Returns: heading number as string or empty string
-#let getHeadingNumber(skip: 1, level: 1) = {
-  let headingFull = getHeadingFull(skip: skip, level: level)
-  if headingFull.len() > 0 {
-    return headingFull.first().number
+#let get-heading-number(skip: 1, level: 1) = {
+  let heading-full = get-heading-full(skip: skip, level: level)
+  if heading-full.len() > 0 {
+    return heading-full.first().number
   }
   return ""
 }
 
 // Create a page header displaying the current chapter number and title
 // Parameters:
-//   evenText: content to display on even (left) pages
+//   even-text: content to display on even (left) pages
 // Returns: dictionary with "odd" and "even" keys containing header content
-#let kzn-header(evenText: none) = {
+#let kzn-header(even-text: none) = {
   return (
     odd: [
       #context {
-        getHeadingNumber(skip: 1, level: 1) + " " + getHeadingBody(level: 1, skip: 1)
+        get-heading-number(skip: 1, level: 1) + " " + get-heading-body(level: 1, skip: 1)
       }
     ],
-    even: evenText,
+    even: even-text,
   )
 }
 
 // Create a page footer with page numbers and optional custom text
 // Parameters:
-//   footerText: custom text to display in the footer (hidden in anonymous mode)
-//   numberPrefix: prefix string prepended to the page number
+//   footer-text: custom text to display in the footer (hidden in anonymous mode)
+//   number-prefix: prefix string prepended to the page number
 // Returns: dictionary with "odd" and "even" keys containing footer content
-#let kzn-footer(footerText: none, numberPrefix: none) = {
+#let kzn-footer(footer-text: none, number-prefix: none) = {
   return (
     odd: [
-      #context(if show-private-content.get() { footerText } + h(1fr) + numberPrefix + counter(page).display())
+      #context(if show-private-content.get() { footer-text } + h(1fr) + number-prefix + counter(page).display())
     ],
     even: [
-      #context(numberPrefix + counter(page).display() + h(1fr) + if show-private-content.get() { footerText })
+      #context(number-prefix + counter(page).display() + h(1fr) + if show-private-content.get() { footer-text })
     ],
   )
 }
@@ -520,10 +520,10 @@
 // Render outlines (table of contents, list of figures, list of tables)
 // at the specified position ("before" or "after" main matter)
 // Parameters:
-//   outline_def: outline configuration dictionary
-//   layout_def: layout configuration dictionary
+//   outline-def: outline configuration dictionary
+//   layout-def: layout configuration dictionary
 //   position: placement marker — either "before" or "after"
-#let outlines(outline_def, layout_def, position) = {
+#let outlines(outline-def, layout-def, position) = {
   // Default visibility flags
   let toc = false
   let lof = false
@@ -540,25 +540,25 @@
   let lot-outlined = true
 
   // Read configuration values if provided
-  if exists("toc", outline_def) { toc = true }
-  if exists("toc-position", outline_def) { toc-position = outline_def.toc-position }
-  if exists("toc-outlined", outline_def) { toc-outlined = outline_def.toc-outlined }
+  if exists("toc", outline-def) { toc = true }
+  if exists("toc-position", outline-def) { toc-position = outline-def.toc-position }
+  if exists("toc-outlined", outline-def) { toc-outlined = outline-def.toc-outlined }
 
-  if exists("lof", outline_def) { lof = true }
-  if exists("lof-position", outline_def) { lof-position = outline_def.lof-position }
-  if exists("lof-outlined", outline_def) { lof-outlined = outline_def.lof-outlined }
+  if exists("lof", outline-def) { lof = true }
+  if exists("lof-position", outline-def) { lof-position = outline-def.lof-position }
+  if exists("lof-outlined", outline-def) { lof-outlined = outline-def.lof-outlined }
 
-  if exists("lot", outline_def) { lot = true }
-  if exists("lot-position", outline_def) { lot-position = outline_def.lot-position }
-  if exists("lot-outlined", outline_def) { lot-outlined = outline_def.lot-outlined }
+  if exists("lot", outline-def) { lot = true }
+  if exists("lot-position", outline-def) { lot-position = outline-def.lot-position }
+  if exists("lot-outlined", outline-def) { lot-outlined = outline-def.lot-outlined }
 
   // Render table of contents
   if toc and toc-position == position {
     outline(
       title: [
         #set heading(outlined: toc-outlined)
-        #set text(font: layout_def.mainFont, size: layout_def.font-size)
-        #outline_def.toc
+        #set text(font: layout-def.mainFont, size: layout-def.font-size)
+        #outline-def.toc
       ],
     )
     pagebreak(weak: true)
@@ -569,8 +569,8 @@
     outline(
       title: [
         #set heading(outlined: lof-outlined)
-        #set text(font: layout_def.mainFont, size: layout_def.font-size)
-        #outline_def.lof
+        #set text(font: layout-def.mainFont, size: layout-def.font-size)
+        #outline-def.lof
       ],
       target: figure.where(kind: figure),
     )
@@ -582,8 +582,8 @@
     outline(
       title: [
         #set heading(outlined: lot-outlined)
-        #set text(font: layout_def.mainFont, size: layout_def.font-size)
-        #outline_def.lot
+        #set text(font: layout-def.mainFont, size: layout-def.font-size)
+        #outline-def.lot
       ],
       target: figure.where(kind: table),
     )
@@ -594,24 +594,24 @@
 // Render outlines before the main matter using Roman page numbering
 // Resets the page counter to 1 after the outlines
 // Parameters:
-//   outline_def: outline configuration dictionary
-//   layout_def: layout configuration dictionary
-#let outlines_before(outline_def, layout_def) = {
+//   outline-def: outline configuration dictionary
+//   layout-def: layout configuration dictionary
+#let outlines-before(outline-def, layout-def) = {
   let numbering = "i"
-  if exists("numbering", outline_def) { numbering = outline_def.numbering }
+  if exists("numbering", outline-def) { numbering = outline-def.numbering }
   set page(numbering: numbering, header: none)
-  outlines(outline_def, layout_def, "before")
+  outlines(outline-def, layout-def, "before")
   pagebreak(weak: true, to: "odd")
   counter(page).update(1)
 }
 
 // Render outlines after the main matter (e.g. before appendices)
 // Parameters:
-//   outline_def: outline configuration dictionary
-//   layout_def: layout configuration dictionary
-#let outlines_after(outline_def, layout_def) = {
+//   outline-def: outline configuration dictionary
+//   layout-def: layout configuration dictionary
+#let outlines-after(outline-def, layout-def) = {
   set page(header: none)
-  outlines(outline_def, layout_def, "after")
+  outlines(outline-def, layout-def, "after")
 }
 
 
@@ -624,39 +624,39 @@
 // heading styles, and renders title page, frontmatter, outlines,
 // and main content in the correct order
 // Parameters:
-//   layout_def: layout configuration dictionary
-//   frontmatter_def: frontmatter configuration dictionary (abstracts, declarations, etc.)
-//   titlepage_def: title page configuration dictionary
-//   outline_def: outline configuration dictionary
+//   layout-def: layout configuration dictionary
+//   frontmatter-def: frontmatter configuration dictionary (abstracts, declarations, etc.)
+//   titlepage-def: title page configuration dictionary
+//   outline-def: outline configuration dictionary
 //   doc: main document body content
-#let ma(layout_def: none, frontmatter_def: none, titlepage_def: none, outline_def: none, doc) = {
+#let ma(layout-def: none, frontmatter-def: none, titlepage-def: none, outline-def: none, doc) = {
 
   // ----------------------------------------------------------------
   // Page Layout
   // ----------------------------------------------------------------
 
   set page(
-    paper: layout_def.paper,
-    margin: layout_def.margin,
-    numbering: layout_def.numbering,
+    paper: layout-def.paper,
+    margin: layout-def.margin,
+    numbering: layout-def.numbering,
     footer: context {
       if calc.odd(counter(page).get().first()) [
-        #align(right)[#layout_def.footer.odd]
+        #align(right)[#layout-def.footer.odd]
       ] else [
-        #layout_def.footer.even
+        #layout-def.footer.even
       ]
     },
     header: context { 
       if calc.odd(counter(page).get().first()) [
-        #align(right)[#layout_def.header.odd]
+        #align(right)[#layout-def.header.odd]
       ] else [
-        #layout_def.header.even
+        #layout-def.header.even
       ]
     },
   )
 
   // Activate copy protection (anonymization) if requested
-  if layout_def.copystop {
+  if layout-def.copystop {
     show-private-content.update(false)
   }
 
@@ -688,9 +688,9 @@
   let table-short-str = "Tab."
   let sec-short-str = "Kap."
 
-  if exists("fig-desc", layout_def) { figure-short-str = layout_def.fig-desc }
-  if exists("tab-desc", layout_def) { table-short-str = layout_def.tab-desc }
-  if exists("heading-desc", layout_def) { sec-short-str = layout_def.heading-desc }
+  if exists("fig-desc", layout-def) { figure-short-str = layout-def.fig-desc }
+  if exists("tab-desc", layout-def) { table-short-str = layout-def.tab-desc }
+  if exists("heading-desc", layout-def) { sec-short-str = layout-def.heading-desc }
 
   set heading(supplement: sec-short-str)
 
@@ -701,8 +701,8 @@
   let lang = "de"
   let reg = "CH"
 
-  if exists("language", layout_def) { lang = layout_def.language }
-  if exists("language-region", layout_def) { reg = layout_def.language-region }
+  if exists("language", layout-def) { lang = layout-def.language }
+  if exists("language-region", layout-def) { reg = layout-def.language-region }
 
   set text(lang: lang)
   set text(region: reg)
@@ -714,20 +714,20 @@
   let font = "New Computer Modern"
   let font-size = "11pt"
 
-  if exists("mainFont", layout_def) { font = layout_def.mainFont }
-  if exists("font-size", layout_def) { font-size = layout_def.font-size }
+  if exists("mainFont", layout-def) { font = layout-def.mainFont }
+  if exists("font-size", layout-def) { font-size = layout-def.font-size }
 
   set text(font: font)
   set text(size: font-size)
 
   // Math font
   let math-font = "Libertinus Math"
-  if exists("mathFont", layout_def) { math-font = layout_def.mathFont }
+  if exists("mathFont", layout-def) { math-font = layout-def.mathFont }
   show math.equation: set text(font: math-font)
 
   // Hyperlink color
   let link-color = blue
-  if exists("link-color", layout_def) { link-color = layout_def.link-color }
+  if exists("link-color", layout-def) { link-color = layout-def.link-color }
   show link: set text(rgb(link-color))
 
   // ----------------------------------------------------------------
@@ -749,7 +749,7 @@
 
   // Determine TOC depth — headings beyond this level are unnumbered
   let toc-depth = 3
-  if exists("toc-depth", outline_def) { toc-depth = outline_def.toc-depth }
+  if exists("toc-depth", outline-def) { toc-depth = outline-def.toc-depth }
   set outline(depth: toc-depth)
 
   // Suppress numbering for headings deeper than toc-depth
@@ -849,10 +849,10 @@
   // Title Page
   // ----------------------------------------------------------------
 
-  if not isEmpty(titlepage_def.content) {
+  if not is-empty(titlepage-def.content) {
     set heading(numbering: none, outlined: false)
     set page(numbering: none, footer: none, header: none)
-    titlepage_def.content
+    titlepage-def.content
     pagebreak(to: "odd")
     counter(heading).update(0)
     counter(page).update(1)
@@ -862,16 +862,16 @@
   // Frontmatter
   // ----------------------------------------------------------------
 
-  if not isEmpty(frontmatter_def.content) {
+  if not is-empty(frontmatter-def.content) {
     set heading(numbering: none, outlined: false)
 
     let numbering = "i"
-    if exists("numbering", frontmatter_def) { numbering = frontmatter_def.numbering }
+    if exists("numbering", frontmatter-def) { numbering = frontmatter-def.numbering }
 
     set page(numbering: numbering, header: none)
 
     // Apply custom footer if defined in frontmatter configuration
-    if exists("footer", frontmatter_def) {
+    if exists("footer", frontmatter-def) {
       set page(
         footer: context {
           if calc.odd(counter(page).get().first()) [
@@ -884,7 +884,7 @@
     }
 
     // Render each frontmatter section followed by a page break
-    for item in frontmatter_def.content {
+    for item in frontmatter-def.content {
       item
       pagebreak(weak: true)
     }
@@ -896,9 +896,9 @@
   // Outlines and Main Content
   // ----------------------------------------------------------------
 
-  show outline: set text(font: layout_def.mainFont, size: layout_def.font-size)
+  show outline: set text(font: layout-def.mainFont, size: layout-def.font-size)
 
-  outlines_before(outline_def, layout_def)
+  outlines-before(outline-def, layout-def)
 
   doc
 }
