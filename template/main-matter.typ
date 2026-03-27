@@ -472,7 +472,7 @@ Für die Layoutanpassungen werden mehrere _Dictionaries_ verwendet. Ein _Diction
 Die Einträge hier müssen nicht unbedingt geändert werden, können aber durch eigene Inhalte überschrieben werden. Einige Einträge haben etwas speziellere Eigenschaften:
 
 - Zeile 85: Hier wird die Sprache gesetzt. Unterstützt werden: de, en, fr, it, es
-- Zeile 86: Hier wird die Region gesetzt, was sich z.B. auf die Anführungszeichen auswirkt. Mit ```typst "CH"``` werden Schweizer Anführungszeichen («...») verwendet, mit ```typst "DE"``` deutsche („..."). Zur Verfügung stehen alle ISO 3166-1 alpha-2 Region-Codes @wiki:iso-alpha2
+- Zeile 86: Hier wird die Region gesetzt, was sich z.B. auf die Anführungszeichen auswirkt. Mit ```typst "CH"``` werden Schweizer Anführungszeichen («...») verwendet, mit ```typst "DE"``` deutsche („...“). Zur Verfügung stehen alle ISO 3166-1 alpha-2 Region-Codes @wiki:iso-alpha2
 - Zeile 71: Hier kann eine anonymisierte Version der Arbeit ohne Bilder, ohne Titelblatt und ohne persönlich markierte Informationen erstellt werden, indem ```typst copystop = true``` gesetzt wird (vgl. @kap:anonym)
 - Zeile 74 und 77: Hier werden Funktionen zur Verfügung gestellt, die Kopf- und Fusszeilen korrekt für ein zweiseitiges Layout erstellen. Standard: Titel der Arbeit auf geraden Seiten aussen, aktueller Kapiteltitel auf ungeraden Seiten aussen, Seitenzahl und Schulname in der Fusszeile
 
