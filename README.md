@@ -6,7 +6,7 @@
 
 `ma-template` is a comprehensive Typst template for academic theses and dissertations. Provides functions for title pages, headers, footers, table of contents, list of figures/tables, figure and table formatting with subfigures, and full document layout management. Supports multilingual documents (DE/EN/FR) with customizable fonts, spacing, and numbering schemes.
 
-![Thumbnail](thumbnail.png)
+![First page of the KZN-Template](thumbnail.png)
 
 ## Basic usage
 
