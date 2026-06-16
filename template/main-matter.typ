@@ -363,11 +363,11 @@ project/
 └── mendeley.bib          // Literaturdatenbank
 ```
 
-Alle Einstellungen werden im File ```main.typ``` vorgenommen. Nach dem Anlegen des Projekts sind bereits Standardwerte eingetragen.
+Alle Einstellungen werden im File `main.typ` vorgenommen. Nach dem Anlegen des Projekts sind bereits Standardwerte eingetragen.
 
 == Anpassen von Textvariablen
 
-Im Dokument ```main.typ``` müssen einige Variablen an die eigene Arbeit angepasst werden, z.B. Titel, Autoren und Betreuende.
+Im Dokument `main.typ` müssen einige Variablen an die eigene Arbeit angepasst werden, z.B. Titel, Autoren und Betreuende.
 
 Andere Variablen werden vom Template in mehrsprachigen Varianten zur Verfügung gestellt. Diese werden mit
 
