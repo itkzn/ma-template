@@ -62,7 +62,7 @@
 //   localize(thesis-type-fmp), localize(thesis-type-beginners-guide)
 // Eigene Bezeichnung: #let thesis-type = "Laborbericht"
 // Kein Eintrag: #let thesis-type = none
-#let thesis-type = localize(thesis-type-beginners-guide) 
+#let thesis-type = localize(thesis-type-beginners-guide)
 
 // Bezeichnungen für Autorenschaft, Betreuung und Datum auf der Titelseite.
 // Für eigene Bezeichnung direkt einen Text eingeben, z.B. "geschrieben von"
@@ -143,9 +143,9 @@
   numbering: "1",
 
   // Schriftarten
-  mainFont: "EB Garamond",             // Hauptschrift
+  mainFont: "EB Garamond", // Hauptschrift
   monoFont: "New Computer Modern Mono", // Monospace-Schrift
-  mathFont: "Libertinus Math",          // Mathematikschrift
+  mathFont: "Libertinus Math", // Mathematikschrift
 
   // Anonymisierung: false = normale Version, true = anonymisierte Version
   // Im Text können private Inhalte mit #private([...]) geschützt werden
@@ -289,7 +289,7 @@
 
 // Hier wird die gewünschte Titelseite ausgewählt
 #let titlepage-def = (
-  content: kznTitlePage()
+  content: kznTitlePage(),
   // content: simpleTitlePage()
 )
 
@@ -304,77 +304,77 @@
 #let myAbstract() = {
   [= #abstract-title
 
-Dieses Dokument beschreibt das Typst-Template der Kantonsschule Zürich Nord (KZN) für Maturitätsarbeiten und andere schriftliche Arbeiten. Es richtet sich an Schülerinnen und Schüler, die ihre Arbeit mit dem modernen Textsatzsystem Typst verfassen möchten, sowie an Lehrpersonen, die das Template für eigene Dokumente einsetzen.
+    Dieses Dokument beschreibt das Typst-Template der Kantonsschule Zürich Nord (KZN) für Maturitätsarbeiten und andere schriftliche Arbeiten. Es richtet sich an Schülerinnen und Schüler, die ihre Arbeit mit dem modernen Textsatzsystem Typst verfassen möchten, sowie an Lehrpersonen, die das Template für eigene Dokumente einsetzen.
 
-Im ersten Teil werden die Grundkonzepte von Typst erläutert: Textformatierung mit Markdown, die zentralen Funktionen, sowie das Einbinden von Tabellen, Abbildungen und Formeln.
+    Im ersten Teil werden die Grundkonzepte von Typst erläutert: Textformatierung mit Markdown, die zentralen Funktionen, sowie das Einbinden von Tabellen, Abbildungen und Formeln.
 
-Der zweite Teil dokumentiert das KZN-Template konkret: Projekterstellung, Anpassung von Layout und Titelseite, Verwaltung der Frontmatter-Blöcke, Literaturreferenzen im BibTeX-Format, Mehrsprachigkeit sowie die Anonymisierungsfunktion für Plagiatsprüfungen.
+    Der zweite Teil dokumentiert das KZN-Template konkret: Projekterstellung, Anpassung von Layout und Titelseite, Verwaltung der Frontmatter-Blöcke, Literaturreferenzen im BibTeX-Format, Mehrsprachigkeit sowie die Anonymisierungsfunktion für Plagiatsprüfungen.
 
-Im Anhang finden sich vollständige Beispiele für den mathematischen Formelsatz, den Umgang mit diakritischen Zeichen und nicht-lateinischen Schriften, sowie Vorlagen für Einzel- und Mehrfachabbildungen und -tabellen.
+    Im Anhang finden sich vollständige Beispiele für den mathematischen Formelsatz, den Umgang mit diakritischen Zeichen und nicht-lateinischen Schriften, sowie Vorlagen für Einzel- und Mehrfachabbildungen und -tabellen.
   ]
 }
 
 #let myAIDeclaration() = {
   [= #ai-declaration-title
-  #localize((
-    de: [
-KI-Tools wurden bei der Erstellung dieser Arbeit in folgenden Bereichen eingesetzt:
-- Übersetzungen und Sprachbeispiele (Claude Sonnet 4.6)
-- Grammatik- und Stilprüfung (Claude Sonnet 4.6)
-- Code-Generierung für Beispiele (Claude Sonnet 4.6)
+    #localize((
+      de: [
+        KI-Tools wurden bei der Erstellung dieser Arbeit in folgenden Bereichen eingesetzt:
+        - Übersetzungen und Sprachbeispiele (Claude Sonnet 4.6)
+        - Grammatik- und Stilprüfung (Claude Sonnet 4.6)
+        - Code-Generierung für Beispiele (Claude Sonnet 4.6)
 
-Alle KI-generierten Inhalte wurden sorgfältig überprüft, verifiziert und bei Bedarf angepasst.],
-    en: [
-AI tools were used in the following areas during the preparation of this work:
-- Translations and language examples (Claude Sonnet 4.6)
-- Grammar and style checking (Claude Sonnet 4.6)
-- Code generation for examples (Claude Sonnet 4.6)
+        Alle KI-generierten Inhalte wurden sorgfältig überprüft, verifiziert und bei Bedarf angepasst.],
+      en: [
+        AI tools were used in the following areas during the preparation of this work:
+        - Translations and language examples (Claude Sonnet 4.6)
+        - Grammar and style checking (Claude Sonnet 4.6)
+        - Code generation for examples (Claude Sonnet 4.6)
 
-All AI-generated content was carefully reviewed, verified, and adapted as needed.],
-    fr: [
-Des outils d'IA ont été utilisés dans les domaines suivants lors de la préparation de ce travail :
-- Traductions et exemples linguistiques (Claude Sonnet 4.6)
-- Vérification grammaticale et stylistique (Claude Sonnet 4.6)
-- Génération de code pour les exemples (Claude Sonnet 4.6)
+        All AI-generated content was carefully reviewed, verified, and adapted as needed.],
+      fr: [
+        Des outils d'IA ont été utilisés dans les domaines suivants lors de la préparation de ce travail :
+        - Traductions et exemples linguistiques (Claude Sonnet 4.6)
+        - Vérification grammaticale et stylistique (Claude Sonnet 4.6)
+        - Génération de code pour les exemples (Claude Sonnet 4.6)
 
-Tous les contenus générés par IA ont été soigneusement vérifiés, validés et adaptés si nécessaire.],
-    it: [
-Strumenti di IA sono stati utilizzati nelle seguenti aree durante la preparazione di questo lavoro:
-- Traduzioni ed esempi linguistici (Claude Sonnet 4.6)
-- Controllo grammaticale e stilistico (Claude Sonnet 4.6)
-- Generazione di codice per gli esempi (Claude Sonnet 4.6)
+        Tous les contenus générés par IA ont été soigneusement vérifiés, validés et adaptés si nécessaire.],
+      it: [
+        Strumenti di IA sono stati utilizzati nelle seguenti aree durante la preparazione di questo lavoro:
+        - Traduzioni ed esempi linguistici (Claude Sonnet 4.6)
+        - Controllo grammaticale e stilistico (Claude Sonnet 4.6)
+        - Generazione di codice per gli esempi (Claude Sonnet 4.6)
 
-Tutti i contenuti generati dall'IA sono stati attentamente verificati, validati e adattati secondo necessità.],
-    es: [
-Se utilizaron herramientas de IA en las siguientes áreas durante la preparación de este trabajo:
-- Traducciones y ejemplos lingüísticos (Claude Sonnet 4.6)
-- Revisión gramatical y estilística (Claude Sonnet 4.6)
-- Generación de código para ejemplos (Claude Sonnet 4.6)
+        Tutti i contenuti generati dall'IA sono stati attentamente verificati, validati e adattati secondo necessità.],
+      es: [
+        Se utilizaron herramientas de IA en las siguientes áreas durante la preparación de este trabajo:
+        - Traducciones y ejemplos lingüísticos (Claude Sonnet 4.6)
+        - Revisión gramatical y estilística (Claude Sonnet 4.6)
+        - Generación de código para ejemplos (Claude Sonnet 4.6)
 
-Todo el contenido generado por IA fue cuidadosamente revisado, verificado y adaptado según fuera necesario.],
-  ))
+        Todo el contenido generado por IA fue cuidadosamente revisado, verificado y adaptado según fuera necesario.],
+    ))
   ]
 }
 
 #let myAcknowledgments() = {
   [= #acknowledgments-title
 
-  Wir danken dem Typst-Entwicklerteam für die Bereitstellung eines modernen, leistungsfähigen und frei zugänglichen Textsatzsystems.
+    Wir danken dem Typst-Entwicklerteam für die Bereitstellung eines modernen, leistungsfähigen und frei zugänglichen Textsatzsystems.
   ]
 }
 
 #let myPreface() = {
   [= #preface-title
 
-  Wer eine Maturarbeit schreibt, soll sich auf den Inhalt konzentrieren können –
-  nicht auf Seitenränder, Schriftgrössen und Titelseiten. 
+    Wer eine Maturarbeit schreibt, soll sich auf den Inhalt konzentrieren können –
+    nicht auf Seitenränder, Schriftgrössen und Titelseiten.
 
-  Mit Typst steht ein modernes Textsatzsystem zur Verfügung, das eine klare Trennung von Inhalt und Layout erlaubt. Die Formatierung geschieht automatisch, ist aber dennoch überall anpassbar.
-   Literaturreferenzen können mit
-  Online-Datenbanken wie Mendeley oder Zotero verwaltet und mit minimalem Aufwand
-  in die Arbeit integriert werden. Der Formelsatz für Mathematik, Physik und Chemie ist intuitiv, ebenso Codeblöcke für Informatikarbeiten.
- 
- Dieses Template soll Zeit und Nerven sparen, damit beides für das wirklich Wichtige zur Verfügung steht: das Denken, Recherchieren und Schreiben.
+    Mit Typst steht ein modernes Textsatzsystem zur Verfügung, das eine klare Trennung von Inhalt und Layout erlaubt. Die Formatierung geschieht automatisch, ist aber dennoch überall anpassbar.
+    Literaturreferenzen können mit
+    Online-Datenbanken wie Mendeley oder Zotero verwaltet und mit minimalem Aufwand
+    in die Arbeit integriert werden. Der Formelsatz für Mathematik, Physik und Chemie ist intuitiv, ebenso Codeblöcke für Informatikarbeiten.
+
+    Dieses Template soll Zeit und Nerven sparen, damit beides für das wirklich Wichtige zur Verfügung steht: das Denken, Recherchieren und Schreiben.
   ]
 }
 
@@ -382,33 +382,33 @@ Todo el contenido generado por IA fue cuidadosamente revisado, verificado y adap
 #let myCustomBlock() = {
   [= Quickstart
 
-  Um die eigene Arbeit zu starten, sind mindestens diese Schritt nötig:
+    Um die eigene Arbeit zu starten, sind mindestens diese Schritt nötig:
 
-  - Im Dokument ```typst main.typ``` nach dem Kommentar "Allgemeine Angaben" die Informationen wie Titel, Namen etc. anpassen.
-  - Ein eigenes Bild für die Titelseite in den Ordner ```typst img``` hochladen und in der ```typst kznTitlePage()```-Funktion im Dokument ```typst main.typ``` anpassen:
-    ```typst // Titelseite mit KZN-Gestaltung und Hintergrundbild
-  #let kznTitlePage() = kzn-titlepage(
-  ...
-  nord-image: image("img/neuesBild.jpeg", height: 100%),
-  // Quellenangabe zum Hintergrundbild (beliebiger Textblock)
-  nord-image-source: [#localize(cover-image) #link("https://www.meineBildquelle.ch")],
-  ...
-  ```
-  - Die Vorspann-Blöcke im Dokument ```typst main.typ``` anpassen und nicht gewünschte löschen. So würde z.B. nur der Abstract-Block gesetzt: ```typst #let frontmatter-def = (
-  content: (
-    myAbstract(),
-  ),
-  // numbering: "i",               // Römische Seitenzahlen im Vorspann
-  // footer: kzn-footer(footer-text: []), // Eigene Fusszeile im Vorspann
-)
-```
-  - Inhalt in ```typst main-matter.typ``` und ```typst appendix.typ``` löschen bis auf folgende Zeilen:
-    ```typst #import "@​preview/kzn-ma:0.1.0": * // Diese Zeile ist immer nötig
-#import "@preview/unify:0.7.1": unit, qty, num // Diese Zeile nötig, wenn Formeln gesetzt werden
-#import "@preview/codly:1.3.0": codly, codly-init 
-#import "@preview/codly-languages:0.1.10": * // Diese beiden Zeilen sind nötig, wenn Codeblöcke gesetzt werden
-```
-- Arbeit in ```typst main-matter.typ``` und ```typst appendix.typ``` schreiben.
+    - Im Dokument ```typst main.typ``` nach dem Kommentar "Allgemeine Angaben" die Informationen wie Titel, Namen etc. anpassen.
+    - Ein eigenes Bild für die Titelseite in den Ordner ```typst img``` hochladen und in der ```typst kznTitlePage()```-Funktion im Dokument ```typst main.typ``` anpassen:
+      ```typst // Titelseite mit KZN-Gestaltung und Hintergrundbild
+      #let kznTitlePage() = kzn-titlepage(
+      ...
+      nord-image: image("img/neuesBild.jpeg", height: 100%),
+      // Quellenangabe zum Hintergrundbild (beliebiger Textblock)
+      nord-image-source: [#localize(cover-image) #link("https://www.meineBildquelle.ch")],
+      ...
+      ```
+    - Die Vorspann-Blöcke im Dokument ```typst main.typ``` anpassen und nicht gewünschte löschen. So würde z.B. nur der Abstract-Block gesetzt: ```typst #let frontmatter-def = (
+        content: (
+          myAbstract(),
+        ),
+        // numbering: "i",               // Römische Seitenzahlen im Vorspann
+        // footer: kzn-footer(footer-text: []), // Eigene Fusszeile im Vorspann
+      )
+      ```
+    - Inhalt in ```typst main-matter.typ``` und ```typst appendix.typ``` löschen bis auf folgende Zeilen:
+      ```typst #import "@preview/kzn-ma:0.1.1": * // Diese Zeile ist immer nötig
+      #import "@preview/unify:0.8.1": unit, qty, num // Diese Zeile nötig, wenn Formeln gesetzt werden
+      #import "@preview/codly:1.3.0": codly, codly-init
+      #import "@preview/codly-languages:0.1.10": * // Diese beiden Zeilen sind nötig, wenn Codeblöcke gesetzt werden
+      ```
+    - Arbeit in ```typst main-matter.typ``` und ```typst appendix.typ``` schreiben.
   ]
 }
 
@@ -417,7 +417,7 @@ Todo el contenido generado por IA fue cuidadosamente revisado, verificado y adap
 #let frontmatter-def = (
   content: (
     myAbstract(),
-    myAIDeclaration(), 
+    myAIDeclaration(),
     myAcknowledgments(),
     myPreface(),
     myCustomBlock(),
@@ -468,8 +468,8 @@ Todo el contenido generado por IA fue cuidadosamente revisado, verificado y adap
 // ============================================================
 
 #set heading(
-  numbering: "A",   // Alphabetische Nummerierung der Anhang-Titel
-  outlined: true,   // Anhänge erscheinen im Inhaltsverzeichnis
+  numbering: "A", // Alphabetische Nummerierung der Anhang-Titel
+  outlined: true, // Anhänge erscheinen im Inhaltsverzeichnis
   supplement: appendix-desc,
 )
 #counter(heading).update(0)          // Neustart der Nummerierung

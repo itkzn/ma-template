@@ -34,9 +34,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
- 
+
 #import "@preview/kzn-ma:0.1.1": *
-#import "@preview/unify:0.8.1": unit, qty, num
+#import "@preview/unify:0.8.1": num, qty, unit
 #import "@preview/codly:1.3.0": codly, codly-init
 #import "@preview/codly-languages:0.1.10": *
 
@@ -291,9 +291,9 @@ Die gesetzte Tabelle:
       bottom: 1pt,
     ),
     table.header([], [Länge in m], [Breite in m], [Höhe in m]),
-    [Tisch],   [1.20], [1.20], [0.80],
-    [Schrank],  [1.15], [0.65], [2.20],
-    [Bett],     [2.10], [0.90], [0.25],
+    [Tisch], [1.20], [1.20], [0.80],
+    [Schrank], [1.15], [0.65], [2.20],
+    [Bett], [2.10], [0.90], [0.25],
   ),
   caption: [Abmessungen einzelner Möbelstücke],
   kind: table,
@@ -326,7 +326,7 @@ Da der Formelsatz äusserst mächtig ist, wird hier auf eine Auflistung der Befe
 Das Zusatzpaket ```typst unify``` erlaubt es, Einheiten typografisch korrekt zu setzen. Die Einheiten können sowohl innerhalb einer Formel als auch im Lauftext angebracht werden, wie folgendes Beispiel zeigt:
 
 ```typst
-#import "@preview/unify:0.7.1": unit, qty, num
+#import "@preview/unify:0.8.1": unit, qty, num
 
 Ein Fahrzeug der Masse #qty("1230", "kg") wird mit einer resultierenden Kraft
 von #qty("15", "kilo Newton") gezogen. Wie gross ist die Beschleunigung, die
@@ -583,7 +583,7 @@ Vor dem Inhaltsverzeichnis können mehrere Blöcke eingefügt werden, z.B. Abstr
 #let frontmatter-def = (
   content: (
     myAbstract(),
-    myAIDeclaration(), 
+    myAIDeclaration(),
     myAcknowledgments(),
     myPreface(),
     myCustomBlock(),
@@ -897,6 +897,7 @@ Das KZN-Template benutzt die vom Typst-Standard vorgesehene Syntax zum Einbinden
           kind: "subfigure",
         )<fig1b>
       ],
+
       [
         #figure(
           align(center)[#text(size: 40pt, baseline: 30pt, [C])],

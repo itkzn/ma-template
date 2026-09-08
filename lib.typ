@@ -143,7 +143,7 @@
 // TeX and LaTeX Logo
 // Returns: the logos formatted as in LaTeX
 #let TeX = {
-  set text(font: "New Computer Modern",)
+  set text(font: "New Computer Modern")
   let t = "T"
   let e = text(baseline: 0.22em, "E")
   let x = "X"
@@ -219,7 +219,7 @@
           place(
             dx: 0cm,
             dy: page.height - page.width - page.margin.top,
-            box(height: page.width + page.margin.inside, nord-image)
+            box(height: page.width + page.margin.inside, nord-image),
           ),
         )
         nord-filling = pat
@@ -415,8 +415,7 @@
 
   if counter(page).at(here()).first() > skip {
     // Search for headings after the current position on the same page
-    let h_after = query(heading.where(level: level).after(here()))
-      .filter(it => it.location().page() == here().page())
+    let h_after = query(heading.where(level: level).after(here())).filter(it => it.location().page() == here().page())
 
     let h = if h_after.len() > 0 {
       h_after.first()
@@ -504,10 +503,10 @@
 #let kzn-footer(footer-text: none, number-prefix: none) = {
   return (
     odd: [
-      #context(if show-private-content.get() { footer-text } + h(1fr) + number-prefix + counter(page).display())
+      #context (if show-private-content.get() { footer-text } + h(1fr) + number-prefix + counter(page).display())
     ],
     even: [
-      #context(number-prefix + counter(page).display() + h(1fr) + if show-private-content.get() { footer-text })
+      #context (number-prefix + counter(page).display() + h(1fr) + if show-private-content.get() { footer-text })
     ],
   )
 }
@@ -630,7 +629,6 @@
 //   outline-def: outline configuration dictionary
 //   doc: main document body content
 #let ma(layout-def: none, frontmatter-def: none, titlepage-def: none, outline-def: none, doc) = {
-
   // ----------------------------------------------------------------
   // Page Layout
   // ----------------------------------------------------------------
@@ -646,7 +644,7 @@
         #layout-def.footer.even
       ]
     },
-    header: context { 
+    header: context {
       if calc.odd(counter(page).get().first()) [
         #align(right)[#layout-def.header.odd]
       ] else [
@@ -843,7 +841,6 @@
     counter(figure.where(kind: "subfigure")).update(0)
     it
   }
-
 
   // ----------------------------------------------------------------
   // Title Page

@@ -34,9 +34,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
- 
+
 #import "@preview/kzn-ma:0.1.1": *
-#import "@preview/unify:0.8.1": unit, qty, num
+#import "@preview/unify:0.8.1": num, qty, unit
 #import "@preview/codly:1.3.0": codly, codly-init
 #import "@preview/codly-languages:0.1.10": *
 #import "@preview/typsium:0.3.2": ce
@@ -102,11 +102,13 @@ $ (partial f)/(partial x) = lim_(h -> 0) (f(x+h,y) - f(x,y))/h $
 
 $ arrow(F) = m arrow(a), quad arrow(v) = mat(v_x; v_y; v_z) $
 
-$ bold(A) = mat(
-  a_(11), a_(12), a_(13);
-  a_(21), a_(22), a_(23);
-  a_(31), a_(32), a_(33)
-) $
+$
+  bold(A) = mat(
+    a_(11), a_(12), a_(13);
+    a_(21), a_(22), a_(23);
+    a_(31), a_(32), a_(33)
+  )
+$
 
 == Physikalische Formeln
 
@@ -132,8 +134,10 @@ $ Delta v = v_g dot.c ln(m_0 / m_1) $
 
 $ nabla dot.c arrow(E) = rho / epsilon_0, quad nabla dot.c arrow(B) = 0 $
 
-$ nabla times arrow(E) = - (partial arrow(B))/(partial t), quad
-  nabla times arrow(B) = mu_0 arrow(J) + mu_0 epsilon_0 (partial arrow(E))/(partial t) $
+$
+  nabla times arrow(E) = - (partial arrow(B))/(partial t), quad
+  nabla times arrow(B) = mu_0 arrow(J) + mu_0 epsilon_0 (partial arrow(E))/(partial t)
+$
 
 $ f = f_0 / (1 - v/c) $
 
@@ -542,12 +546,10 @@ Für ein 2×2-Raster mit vier Teilabbildungen:
       top: if y == 0 { 1pt } else { if y == 1 { 0.5pt } else { 0pt } },
       bottom: 1pt,
     ),
-    table.header(
-      [*Messung*], [*Bedingung*], [*Wert in m/s*], [*Unsicherheit*],
-    ),
-    [M1], [Raumtemperatur], [343.2],  [±0.5],
-    [M2], [0 °C],           [331.5],  [±0.4],
-    [M3], [100 °C],         [386.0],  [±0.6],
+    table.header([*Messung*], [*Bedingung*], [*Wert in m/s*], [*Unsicherheit*]),
+    [M1], [Raumtemperatur], [343.2], [±0.5],
+    [M2], [0 °C], [331.5], [±0.4],
+    [M3], [100 °C], [386.0], [±0.6],
   ),
   caption: [Schallgeschwindigkeit unter verschiedenen Bedingungen.],
   kind: table,
@@ -590,7 +592,7 @@ Analog zu den Abbildungen können auch Tabellen nebeneinander gesetzt werden, in
           table(
             columns: 3,
             align: (left, right, right),
-            fill: (_, y) => if y == 0 { blue.transparentize(80%) },
+           typsium fill: (_, y) => if y == 0 { blue.transparentize(80%) },
             stroke: (_, y) => (
               x: none,
               top: if y == 0 { 1pt } else { if y == 1 { 0.5pt } else { 0pt } },
@@ -634,9 +636,9 @@ Die gesetzte Tabelle:
             ),
             table.header([*Planet*], [*Masse (kg)*], [*Radius (km)*]),
             [Merkur], [$3.30 times 10^23$], [2440],
-            [Venus],  [$4.87 times 10^24$], [6052],
-            [Erde],   [$5.97 times 10^24$], [6371],
-            [Mars],   [$6.42 times 10^23$], [3390],
+            [Venus], [$4.87 times 10^24$], [6052],
+            [Erde], [$5.97 times 10^24$], [6371],
+            [Mars], [$6.42 times 10^23$], [3390],
           ),
           caption: [Innere Planeten],
           kind: "subfigure",
@@ -655,9 +657,9 @@ Die gesetzte Tabelle:
             ),
             table.header([*Planet*], [*Masse (kg)*], [*Radius (km)*]),
             [Jupiter], [$1.90 times 10^27$], [71492],
-            [Saturn],  [$5.68 times 10^26$], [60268],
-            [Uranus],  [$8.68 times 10^25$], [25559],
-            [Neptun],  [$1.02 times 10^26$], [24764],
+            [Saturn], [$5.68 times 10^26$], [60268],
+            [Uranus], [$8.68 times 10^25$], [25559],
+            [Neptun], [$1.02 times 10^26$], [24764],
           ),
           caption: [Äussere Planeten],
           kind: "subfigure",
