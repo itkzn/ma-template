@@ -35,11 +35,11 @@
  * SOFTWARE.
  */
  
-#import "@preview/kzn-ma:0.1.0": *
-#import "@preview/unify:0.7.1": unit, qty, num
+#import "@preview/kzn-ma:0.1.1": *
+#import "@preview/unify:0.8.1": unit, qty, num
 #import "@preview/codly:1.3.0": codly, codly-init
 #import "@preview/codly-languages:0.1.10": *
-#import "@preview/typsium:0.3.1": ce
+#import "@preview/typsium:0.3.2": ce
 
 #show: codly-init.with()
 #codly(languages: codly-languages)
@@ -140,7 +140,7 @@ $ f = f_0 / (1 - v/c) $
 == Einheiten mit ```typst unify```
 
 ```typst
-#import "@preview/unify:0.7.1": unit, qty, num
+#import "@preview/unify:0.8.1": unit, qty, num
 
 // Masszahlen mit Einheit
 Die Lichtgeschwindigkeit beträgt #qty("2.998e8", "m/s").
@@ -170,7 +170,7 @@ $ a = F/m = qty("15.0", "kN") / qty("1230", "kg")
 Für den Chemiesatz steht das Paket `typsium` (#link("https://typst.app/universe/package/typsium")) zur Verfügung. Es wird analog zu `mhchem` in #LaTeX über die Funktion ```typst #ce[...]``` bedient und muss zu Beginn des Dokuments importiert werden:
 
 ```typst
-#import "@preview/typsium:0.3.1": ce
+#import "@preview/typsium:0.3.2": ce
 ```
 
 *Achtung:* Das Paket `typsium` ist teilweise nicht kompatibel mit dem Paket `unify`. Daher nur die Funktionen einbinden, die auch wirklich benötigt werden — hier z.B. nur `ce`.
