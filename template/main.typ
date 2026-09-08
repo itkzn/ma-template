@@ -55,7 +55,7 @@
 #let supervisors = none // ("Vorname Nachname",)
 
 // Abgabedatum
-#let date = datetime(day: 23, month: 3, year: 2026).display("[day].[month].[year]")
+#let date = datetime(day: 8, month: 9, year: 2026).display("[day].[month].[year]")
 
 // Art der Arbeit.
 // Vordefinierte Optionen: localize(thesis-type-ma), localize(thesis-type-sa),
