@@ -35,7 +35,7 @@
  * SOFTWARE.
  */
 
-#import "@preview/kzn-ma:0.1.0": *
+#import "@preview/kzn-ma:0.1.1": *
 
 // ============================================================
 // Allgemeine Angaben
