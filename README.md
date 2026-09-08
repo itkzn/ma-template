@@ -15,7 +15,7 @@ This section provides the minimal amount of information to get started with the 
 To use the `kzn-ma` template, you need to include the following line at the beginning of your `typ` file:
 
 ```typ
-#import "@preview/kzn-ma:0.1.0": *
+#import "@preview/kzn-ma:0.1.1": *
 ```
 
 
