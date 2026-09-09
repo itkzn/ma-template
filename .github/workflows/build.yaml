@@ -33,7 +33,7 @@ jobs:
         run: | 
           cd template
           typst compile --root .. main.typ ../docs/manual.pdf
-          typst compile --root .. --format png --pages 1 --ppi 72 main.typ ../thumbnail.png 
+          typst compile --root .. --format png --pages 1 --ppi 108 main.typ ../thumbnail.png 
           cd ..
       - name: Commit and Push
         run: |
