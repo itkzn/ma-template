@@ -33,6 +33,7 @@ jobs:
         run: | 
           cd template
           typst compile --root .. main.typ ../docs/manual.pdf
+          typst compile --root .. --format png --pages 1 --ppi 72 main.typ ../thumbnail.png 
           cd ..
       - name: Commit and Push
         run: |
@@ -40,6 +41,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
           git add docs/manual.pdf
+          git add thumbnail.png
           # Nur committen, wenn es tatsächlich Änderungen gibt
           git diff --quiet && git diff --staged --quiet || (git commit -m "Automatische Aktualisierung des Manuals" && git push)
 
