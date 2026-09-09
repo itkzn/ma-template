@@ -1,6 +1,6 @@
 [package]
 name = "kzn-ma"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["IT KZN"]
 license = "MIT"
 description = "Template for Matura Work at KZN"
